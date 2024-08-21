@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
@@ -19,9 +20,10 @@ class TranslateRemoteDataImpl implements TranslateRemoteData {
   Future<String> translateTextToText(
       String sourceCode, String targetCode, String text) async {
     try {
+      final String geminiApiKey = dotenv.env['GEMINI_API_KEY'] ?? '';
       final model = GenerativeModel(
         model: 'gemini-1.5-flash-latest',
-        apiKey: "AIzaSyDksgVHf85qyABHx3705-3gvDLoKudR2x4",
+        apiKey: geminiApiKey,
       );
       final prompt =
           'I want to translate the following text: "$text". The source language is "$sourceCode" and the target language is "$targetCode". Just give the translated text nothing else.';
@@ -38,11 +40,12 @@ class TranslateRemoteDataImpl implements TranslateRemoteData {
   Future<String> translateToSpeech(
       String sourceText, String languageCode) async {
     try {
+      final String speechApiKey = dotenv.env['SPEECH_API_KEY'] ?? '';
       final Uri uri = Uri.http(
         'api.voicerss.org',
         '/',
         {
-          'key': '0dd9fb355a4d4159a697ad9b923ffec9',
+          'key': speechApiKey,
           'hl': languageCode,
           'v': 'Amy',
           'src': sourceText,
