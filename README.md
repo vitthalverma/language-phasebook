@@ -2,6 +2,13 @@
 
 Welcome to the **Travel Phrasebook** app! This application is designed to help travelers communicate effortlessly in foreign countries by providing essential phrases in various languages.
 
+<!-- Adding three screenshots side by side -->
+<p align="center">
+  <img src="screenshots/s1.png" alt="Screenshot 1" width="30%" />
+  <img src="screenshots/s2.png" alt="Screenshot 2" width="30%" />
+  <img src="screenshots/s3.png" alt="Screenshot 3" width="30%" />
+</p>
+
 ## 🚀 Features
 
 - **Multi-language Support**: Choose from a wide range of languages to find the phrase you need.
