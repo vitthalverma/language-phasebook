@@ -5,6 +5,7 @@ import 'package:saathi_assignment/core/app/app_colors.dart';
 import 'package:saathi_assignment/core/app/app_router.dart';
 import 'package:saathi_assignment/features/translate/presentation/bloc/favourite_phase/bloc/favourite_phrase_bloc.dart';
 import 'package:saathi_assignment/features/translate/presentation/widgets/custom_button.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,6 +16,27 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final List<String> _favouritePhases = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadFavoritePhrases();
+  }
+
+  Future<void> _loadFavoritePhrases() async {
+    final prefs = await SharedPreferences.getInstance();
+    final List<String>? storedPhrases = prefs.getStringList('favoritePhrases');
+    if (storedPhrases != null) {
+      setState(() {
+        _favouritePhases.addAll(storedPhrases);
+      });
+    }
+  }
+
+  Future<void> _saveFavoritePhrases() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList('favoritePhrases', _favouritePhases);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
             setState(() {
               _favouritePhases.add(state.phrase);
             });
+            _saveFavoritePhrases();
           }
         },
         child: Column(
@@ -78,6 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               setState(() {
                                 _favouritePhases.removeAt(index);
                               });
+                              _saveFavoritePhrases();
                             },
                             icon: const Icon(Icons.delete,
                                 color: AppColors.red700),
