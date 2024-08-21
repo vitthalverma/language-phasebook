@@ -53,7 +53,7 @@ class _TextTranslateScreenState extends State<TextTranslateScreen> {
               // pass the current text to home screen and add it to favorites list
               context.read<FavouritePhraseBloc>().add(
                   AddFavouritePhraseEvent(phrase: _textController.text.trim()));
-              //   Navigator.pop(context);
+              Navigator.pop(context);
             },
             icon: Icon(
               Icons.bookmark_add,
