@@ -13,17 +13,18 @@ Welcome to the **Travel Phrasebook** app! This application is designed to help t
 
 - **Flutter**: The app is built with Flutter, ensuring a smooth and responsive user experience across platforms.
 - **Clean Architecture**: Organized code structure following clean architecture principles.
-- **LibreTranslate API**: Used for translating text between languages.
+- **LibreTranslate API**: Used for fetching list of languages.
 - **VoiceRSS API**: For generating and playing back audio phrases.
+- **Gemini API**: For translating the text from source to target lang. 
 
 ## 📚 External Libraries
 
-The following libraries are used in the project:
+The following important libraries are used in the project:
 
-- **[audioplayers](https://pub.dev/packages/audioplayers)**: For playing audio files across platforms.
+- **[audioplayers](https://pub.dev/packages/audioplayers)**: For playing audio files across app.
 - **[path_provider](https://pub.dev/packages/path_provider)**: To access device paths and store temporary files.
-- **[just_audio](https://pub.dev/packages/just_audio)**: Alternative audio playback library for advanced use cases.
 - **[http](https://pub.dev/packages/http)**: Simplified HTTP client for API requests.
+- **[google_generative_ai](https://pub.dev/packages/google_generative_ai)**: To access Gemini models and Api.
 
 ## 📝 Setup Instructions
 
@@ -50,13 +51,13 @@ flutter run
 
 The app is structured using clean architecture, separating concerns across different layers:
 
-- **Presentation Layer: Handles UI components and state management.
-- **Domain Layer: Business logic and use cases.
-- **Data Layer: Manages API calls and data storage.
+- Presentation Layer: Handles UI components and state management.
+- Domain Layer: Business logic and use cases.
+- Data Layer: Manages API calls. Storing Favourites phrases locally is not implemented.
 
 ## Challenges Faced
 
-- **Handling Byte Data on iOS: iOS does not support direct playback of byte data using the audioplayers package. This was mitigated by saving the byte data as a temporary file and then playing it.
-- **API Integration: Ensuring seamless integration with translation and TTS APIs while managing errors effectively.
+- Handling Byte Data on iOS: iOS does not support direct playback of byte data using the audioplayers package. This was mitigated by saving the byte data as a temporary file and then playing it.
+- API Integration: Ensuring seamless integration with translation and TTS APIs while managing errors effectively.
 
 
