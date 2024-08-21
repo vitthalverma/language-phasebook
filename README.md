@@ -25,6 +25,7 @@ The following important libraries are used in the project:
 - **[path_provider](https://pub.dev/packages/path_provider)**: To access device paths and store temporary files.
 - **[http](https://pub.dev/packages/http)**: Simplified HTTP client for API requests.
 - **[google_generative_ai](https://pub.dev/packages/google_generative_ai)**: To access Gemini models and Api.
+- **[shared_preferences](https://pub.dev/packages/shared_preferences)**: To store faavourite phrases locally
 
 ## 📝 Setup Instructions
 
@@ -53,7 +54,7 @@ The app is structured using clean architecture, separating concerns across diffe
 
 - Presentation Layer: Handles UI components and state management.
 - Domain Layer: Business logic and use cases.
-- Data Layer: Manages API calls. Storing Favourites phrases locally is not implemented.
+- Data Layer: Manages API calls. 
 
 ## Challenges Faced
 
