@@ -35,3 +35,28 @@ Follow these steps to set up the project locally:
 git clone https://github.com/your-username/travel-phrasebook.git
 cd travel-phrasebook
 ```
+### 2. Install dependencies
+
+```bash
+flutter pub get
+```
+### 3. Run the app 
+
+```bash
+flutter run
+```
+
+## 💡 Approach
+
+The app is structured using clean architecture, separating concerns across different layers:
+
+- **Presentation Layer: Handles UI components and state management.
+- **Domain Layer: Business logic and use cases.
+- **Data Layer: Manages API calls and data storage.
+
+## Challenges Faced
+
+- **Handling Byte Data on iOS: iOS does not support direct playback of byte data using the audioplayers package. This was mitigated by saving the byte data as a temporary file and then playing it.
+- **API Integration: Ensuring seamless integration with translation and TTS APIs while managing errors effectively.
+
+
